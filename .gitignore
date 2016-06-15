@@ -4,4 +4,5 @@ empyre.debug
 *.pyc
 downloads/*
 LastTask.py
+lib/modules/lateral_movement/multi/https_proxy/certs/*
 
