@@ -43,7 +43,12 @@ class Module:
 				'Value'         :   ''
 			},
 			'Lport': {
-				'Description'   :   'Local Port for the proxy to bind to',
+				'Description'   :   'Port on c2 for the proxy to bind to',
+				'Required'      :   True,
+				'Value'         :   ''
+			},
+			'Rport': {
+				'Description'   :   'Port on agent for the proxy to bind to',
 				'Required'      :   True,
 				'Value'         :   '3128'
 			}
@@ -72,7 +77,7 @@ class Module:
 		#
 		# the script should be stripped of comments, with a link to any
 		#   original reference script included in the comments.
-		lport = self.options['Lport']['Value']
+		rport = self.options['Rport']['Value']
 		script = """
 		import sys
 		import os
@@ -404,7 +409,7 @@ class Module:
 			print "Serving HTTPS Proxy on", sa[0], "port", sa[1], "..."
 			httpd.serve_forever()
 
-		test()""" % int(lport)
+		test()""" % int(rport)
 		
 		return script
 
